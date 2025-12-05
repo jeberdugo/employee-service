@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://parameta.co/employee/soap"
+           targetNamespace="http://parameta.co/employee/soap"
+           elementFormDefault="qualified">
+
+    <!-- Employee Request -->
+    <xs:element name="SaveEmployeeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="employee" type="tns:EmployeeSoap"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Employee Response -->
+    <xs:element name="SaveEmployeeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="employee" type="tns:EmployeeSoap"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Employee SOAP Type -->
+    <xs:complexType name="EmployeeSoap">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="documentType" type="xs:string"/>
+            <xs:element name="documentNumber" type="xs:string"/>
+            <xs:element name="birthDate" type="xs:date"/>
+            <xs:element name="hiringDate" type="xs:date"/>
+            <xs:element name="position" type="xs:string"/>
+            <xs:element name="salary" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
+
