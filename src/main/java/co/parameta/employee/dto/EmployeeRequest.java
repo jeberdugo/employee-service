@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -36,10 +37,12 @@ public class EmployeeRequest {
     private String documentNumber;
 
     @NotNull(message = "Birth date is required")
+    @DateTimeFormat(pattern = "yyyy-MM-dd", iso = DateTimeFormat.ISO.DATE)
     @Past(message = "Birth date must be a past date")
     private LocalDate birthDate;
 
     @NotNull(message = "Hiring date is required")
+    @DateTimeFormat(pattern = "yyyy-MM-dd", iso = DateTimeFormat.ISO.DATE)
     @PastOrPresent(message = "Hiring date must be a past or present date")
     private LocalDate hiringDate;
 
